@@ -1,4 +1,4 @@
-from models import Admin
+from server.models import Admin
 from flask import jsonify, request
 from server.databaseconf import db
 

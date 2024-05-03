@@ -1,5 +1,5 @@
 from datetime import datetime
-from models import Tickets
+from server.models import Tickets
 from flask import jsonify, request
 from server.databaseconf import db
 

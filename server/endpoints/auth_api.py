@@ -1,4 +1,4 @@
-from admin import Admin
+from server.admin import Admin
 from flask import jsonify, make_response, request, session
 
 def login():

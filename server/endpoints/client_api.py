@@ -1,4 +1,4 @@
-from models import Client
+from server.models import Client
 from flask import jsonify, request
 from server.databaseconf import db
 

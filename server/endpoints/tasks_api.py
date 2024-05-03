@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask import jsonify, request
 from server.databaseconf import db
-from tickets import PriorityLevel, TicketStatus, Tickets
+from server.tickets import PriorityLevel, TicketStatus, Tickets
 
 def task():
     if request.method == 'GET':
