@@ -1,7 +1,7 @@
-from databaseconfig import db
+from server.databaseconf import db
 from datetime import datetime
 from enum import Enum
-from databaseconfig import db
+from server.databaseconf import db
 
 class Tickets(db.Model):
     _tablename_ = 'tickets'

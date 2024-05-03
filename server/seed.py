@@ -1,5 +1,5 @@
 from datetime import datetime
-from databaseconfig import db
+from server.databaseconf import db
 from client import Client
 from admin import Admin
 from tickets import Tickets

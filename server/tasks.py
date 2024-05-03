@@ -1,4 +1,4 @@
-from databaseconfig import db
+from server.databaseconf import db
 
 class Task(db.Model):
     __tablename__ = 'tasks'

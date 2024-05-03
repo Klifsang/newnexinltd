@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, make_response, redirect, request, url_for
 from flask_cors import CORS
 from flask_migrate import Migrate
-from databaseconfig import db
+from server.databaseconf import db
 from endpoints.client_api import clients
 from endpoints.tickets_api import tickets
 from endpoints.admin_api import admin

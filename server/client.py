@@ -1,4 +1,4 @@
-from databaseconfig import db
+from server.databaseconf import db
 from sqlalchemy.orm import validates
 
 class Client(db.Model):

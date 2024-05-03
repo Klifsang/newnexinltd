@@ -1,6 +1,6 @@
 from models import Admin
 from flask import jsonify, request
-from databaseconfig import db
+from server.databaseconf import db
 
 def admin():
     if request.method == 'GET':

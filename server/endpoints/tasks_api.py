@@ -1,6 +1,6 @@
 from datetime import datetime
 from flask import jsonify, request
-from databaseconfig import db
+from server.databaseconf import db
 from tickets import PriorityLevel, TicketStatus, Tickets
 
 def task():

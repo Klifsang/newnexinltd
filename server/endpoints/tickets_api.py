@@ -1,7 +1,7 @@
 from datetime import datetime
 from models import Tickets
 from flask import jsonify, request
-from databaseconfig import db
+from server.databaseconf import db
 
 def tickets():
     if request.method == 'GET':
