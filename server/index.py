@@ -1,7 +1,7 @@
 from functools import wraps
 # import os
 from dotenv import load_dotenv
-from flask import Flask, jsonify, make_response, redirect, request, url_for
+from flask import Flask, jsonify, make_response, redirect, request, send_from_directory, url_for
 from flask_cors import CORS
 from flask_migrate import Migrate
 from server.databaseconf import db
@@ -54,7 +54,7 @@ def login_required(f):
 
 @app.route('/')
 def home():
-    return 'Hello World!'
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 @app.route('/api/protected')
