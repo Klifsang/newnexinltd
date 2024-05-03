@@ -5,7 +5,7 @@ function TeamTable() {
     const [tableItems, setTableItems] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/admin")
+        fetch("http://localhost:5555/admin")
         .then(res => res.json())
         .then(data => setTableItems(data))
     }, [])
@@ -16,7 +16,7 @@ function TeamTable() {
         );
         setTableItems(updatedItems);
 
-        fetch(`http://127.0.0.1:5000/admin?id=${id}`, {
+        fetch(`http://127.0.0.1:5555/admin?id=${id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -25,7 +25,7 @@ function TeamTable() {
             availability: newAvailability,
           }),
         })
-        // fetch(`http://localhost:5000/admin/${id}`, {
+        // fetch(`http://localhost:5555/admin/${id}`, {
         //     method: 'PUT',
         //     headers: {
         //       'Content-Type': 'application/json',

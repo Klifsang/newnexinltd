@@ -32,7 +32,7 @@ function Login({ switchForm, ThemeStyles }) {
 
 
 
-      fetch("http://localhost:5000/login", {
+      fetch("http://127.0.0.1:5555/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,7 +72,7 @@ function Login({ switchForm, ThemeStyles }) {
 
     // Logout function
 function logout() {
-  fetch("http://localhost:5000/logout", {
+  fetch("http://127.0.0.1:5555/logout", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -95,7 +95,7 @@ function logout() {
 
 // Check login status function
 function checkLoginStatus() {
-  axios.get('/check_login')
+  axios.get('http://127.0.0.1:5555/check_login')
       .then(response => {
           if (response.data.islogged === 'loggedin') {
               console.log('Logged in as:', response.data.email);
@@ -217,7 +217,7 @@ function Register({ switchForm, ThemeStyles }) {
       postalCode: Yup.string().required("Required"),
     }),
     onSubmit: (values, { setSubmitting }) => {
-      fetch("http://127.0.0.1:5000/admin", {
+      fetch("http://127.0.0.1:5555/admin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

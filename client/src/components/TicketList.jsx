@@ -24,7 +24,7 @@ const TicketList = ({ ThemeStyles }) => {
   }, []);
 
   const fetchTickets = () => {
-    fetch("http://127.0.0.1:5000/tickets")
+    fetch("http://127.0.0.1:5555/tickets")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch tickets");
@@ -75,7 +75,7 @@ const TicketList = ({ ThemeStyles }) => {
       deadline: deadlineDate || new Date(), // Set default value to current date if deadline is not provided
     };
 
-    fetch("http://127.0.0.1:5000/tickets", {
+    fetch("http://127.0.0.1:5555/tickets", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -106,7 +106,7 @@ const TicketList = ({ ThemeStyles }) => {
   };
 
   const fetchAdminOptions = () => {
-    fetch("http://127.0.0.1:5000/admin")
+    fetch("http://127.0.0.1:5555/admin")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch admin options");
@@ -123,7 +123,7 @@ const TicketList = ({ ThemeStyles }) => {
   };
 
   const handleAssignTo = (ticketId, adminName) => {
-    fetch(`http://127.0.0.1:5000/tickets?id=${ticketId}`, {
+    fetch(`http://127.0.0.1:5555/tickets?id=${ticketId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -145,7 +145,7 @@ const TicketList = ({ ThemeStyles }) => {
   };
 
   const handleDeleteTicket = (ticketId) => {
-    fetch(`http://127.0.0.1:5000/tickets?id=${ticketId}`, {
+    fetch(`http://127.0.0.1:5555/tickets?id=${ticketId}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -165,7 +165,7 @@ const TicketList = ({ ThemeStyles }) => {
 
   const toggleTicketStatus = (ticketId, status) => {
     const newStatus = status === "Open" ? "Closed" : "Open";
-    fetch(`http://127.0.0.1:5000/tickets?id=${ticketId}`, {
+    fetch(`http://127.0.0.1:5555/tickets?id=${ticketId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

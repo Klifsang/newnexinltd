@@ -1,5 +1,5 @@
 from functools import wraps
-import os
+# import os
 from dotenv import load_dotenv
 from flask import Flask, jsonify, make_response, redirect, request, url_for
 from flask_cors import CORS
@@ -21,6 +21,18 @@ app = Flask(
 load_dotenv()
 CORS(app, origins='*')  # Enable CORS with credentials support
 
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///app.db" #DATABASE_URI
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.json.compact = False
+
+
+migrate = Migrate(app, db)
+
+db.init_app(app)
+
+
 @app.before_request
 def before_request():
     if request.method == 'OPTIONS':
@@ -30,28 +42,6 @@ def before_request():
         response.headers.add('Access-Control-Allow-Methods', 'GET,POST')
         return response
 
-
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-DATABASE_URI = os.getenv("DATABASE_URI")
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] =  "sqlite:///app.db" #DATABASE_URI
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.json.compact = False
-
-
-
-
-migrate = Migrate(app, db)
-
-db.init_app(app)
-
-
-# Dummy user data
-users = {
-    'user1': {'username': 'user1', 'password': 'pass1'},
-    'user2': {'username': 'user2', 'password': 'pass2'}
-}
 
 def login_required(f):
     @wraps(f)
@@ -83,5 +73,5 @@ app.add_url_rule('/clients', 'clients', clients, methods=['GET', 'POST', 'PATCH'
 app.add_url_rule('/tickets', 'tickets', tickets, methods=['GET', 'POST', 'DELETE', 'PATCH'])
 
 
-# if __name__ == '__main__':
-#     app.run(port=5555, debug=True)
+if __name__ == '__main__':
+    app.run(port=5555, debug=True)

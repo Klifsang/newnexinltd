@@ -4,7 +4,7 @@ from client import Client
 from admin import Admin
 from tickets import Tickets
 from tasks import Task
-from app import app
+from server.index import app
 
 
 # Use the app's context for database operations
