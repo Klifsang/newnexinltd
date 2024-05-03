@@ -5,10 +5,10 @@ from flask import Flask, jsonify, make_response, redirect, request, url_for
 from flask_cors import CORS
 from flask_migrate import Migrate
 from server.databaseconf import db
-from endpoints.client_api import clients
-from endpoints.tickets_api import tickets
-from endpoints.admin_api import admin
-from endpoints.auth_api import login, logout
+from server.endpoints.client_api import clients
+from server.endpoints.tickets_api import tickets
+from server.endpoints.admin_api import admin
+from server.endpoints.auth_api import login, logout
 
 
 app = Flask(
